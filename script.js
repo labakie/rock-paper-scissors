@@ -1,35 +1,43 @@
-const computerChoice = ['Rock', 'Paper', 'Scissor'];
+const computerChoice = ['Rock', 'Paper', 'Scissorss'];
 
 function getComputerChoice() {
     return computerChoice[Math.floor(Math.random() * computerChoice.length)];
 }
 
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
+function playRound(playerSelectionFixed, computerSelection) {
+    if (playerSelectionFixed === computerSelection) {
         return `It's a tie!`;
-    } else if (playerSelection === 'Rock') {
-        if (computerSelection === 'Scissor') {
-            return `You win! ${playerSelection} beats ${computerSelection}`;
+    } else if (playerSelectionFixed === 'Rock') {
+        if (computerSelection === 'Scissors') {
+            return `You win! ${playerSelectionFixed} beats ${computerSelection}`;
         } else {
-            return `You lose! ${computerSelection} beats ${playerSelection}`;
+            return `You lose! ${computerSelection} beats ${playerSelectionFixed}`;
         }
-    } else if (playerSelection === 'Paper') {
+    } else if (playerSelectionFixed === 'Paper') {
         if (computerSelection === 'Rock') {
-            return `You win! ${playerSelection} beats ${computerSelection}`;
+            return `You win! ${playerSelectionFixed} beats ${computerSelection}`;
         } else {
-            return `You lose! ${computerSelection} beats ${playerSelection}`;
+            return `You lose! ${computerSelection} beats ${playerSelectionFixed}`;
         }
-    } else if (playerSelection === 'Scissor') {
+    } else if (playerSelectionFixed === 'Scissors') {
         if (computerSelection === 'Paper') {
-            return `You win! ${playerSelection} beats ${computerSelection}`;
+            return `You win! ${playerSelectionFixed} beats ${computerSelection}`;
         } else {
-            return `You lose! ${computerSelection} beats ${playerSelection}`;
+            return `You lose! ${computerSelection} beats ${playerSelectionFixed}`;
         }
     }
   }
+
+  function caseSensitiveHandler (word) {
+    const firstLetter = word.slice(0,1).toUpperCase();
+    const theRest = word.slice(1).toLowerCase();
+    return firstLetter + theRest;
+  }
    
-  const playerSelection = 'Scissor';
+  const playerSelection = 'Scissors';
+  const playerSelectionFixed = caseSensitiveHandler(playerSelection);
   const computerSelection = getComputerChoice();
   console.log(playerSelection);
+  console.log(playerSelectionFixed);
   console.log(computerSelection);
-  console.log(playRound(playerSelection, computerSelection));
+  console.log(playRound(playerSelectionFixed, computerSelection));
